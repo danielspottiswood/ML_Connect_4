@@ -102,34 +102,23 @@ class connect4:
 
         if(n_connected == 4):
             return True
-        return False
 
-    def check_horizontal(self):
-        n_connected = 1
+    def check_horizontal(): 
+        board = self.board
         row = self.last_move[0]
-        col = self.last_move[1]
-        i = 1
-        while(n_connected<4):
-            if(col + i > 6):
-                break
-            if(self.board[row][col+i] == self.board[row][col]):
-                n_connected += 1
-            else:
-                break
-            i += 1
-        i = 1
-        while(n_connected<4):
-            if(col - i < 0):
-                break
-            if(self.board[row][col-i] == self.board[row][col]):
-                n_connected += 1
-            else:
-                break
-            i += 1
-
-        if(n_connected == 4):
-            return True
-        return False
+        if (self.turn == 1):
+            checkFor = "1111"
+        else:
+            checkFor = "2222"
+        count = 0
+        # HORIZONTAL CHECK
+        string_board = ""
+        for index in board[row]:
+            string_board += index;
+        if (string_board.contains(checkFor)):
+            return true
+        else:
+            return false;
 
     def has_won(self):
         if(self.last_move[0]==-1):
