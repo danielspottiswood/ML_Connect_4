@@ -77,11 +77,21 @@ class connect4:
         for index in board[row]: 
             string_board += index; 
         if (string_board.contains(checkFor)):
-            return true
+            return True
         else: 
-            return false; 
+            return False 
 
     def has_won(self):
         if(check_diagonal(self) or check_vertical(self) or check_horizontal(self)):
             return True
         return False
+    def pickPiece(move): 
+        self.board[move[0]][move[1]] = self.turn 
+
+    def switchTurns(self): 
+        if (self.turn == 1): 
+            self.turn = 2
+        else: 
+            self.turn = 1 
+
+        
