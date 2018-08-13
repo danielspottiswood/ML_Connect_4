@@ -1,24 +1,10 @@
-<<<<<<< HEAD
-import numpy as np; 
-class connect4:
-
-    def __init__(self):
-        self.board = np.array([[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]])
-        self.turn = 1
-        self.score = 0
-        self.last_move = (-1,-1)
-        
-    def draw(self):
-        if (0 in self.board[0]):
-            return False
-=======
 import copy
-
+import numpy as np
 class connect4:
 
     def __init__(self, *args, **kwargs):
         if(len(args)==0):
-            self.board = [[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]]
+            self.board = np.array([[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]])
             self.turn = 1
             self.last_move = (-1,-1)
         else:
@@ -131,15 +117,9 @@ class connect4:
         for index in board[row]:
             string_board += index;
         if (string_board.contains(checkFor)):
-<<<<<<< HEAD
-            return True
-        else: 
-            return False 
-=======
             return true
         else:
-            return false;
->>>>>>> a6cdfe884539e1f633ccb8f4bc4a43f220767e84
+            return false
 
     def has_won(self):
         if(self.last_move[0]==-1):
@@ -152,18 +132,6 @@ class connect4:
         if(self.board[0][col] ==0):
             return True
         return False
-<<<<<<< HEAD
-    def pickPiece(move): 
-        self.board[move[0]][move[1]] = self.turn 
-
-    def switchTurns(self): 
-        if (self.turn == 1): 
-            self.turn = 2
-        else: 
-            self.turn = 1 
-
-        
-=======
 
     def play(self, col):
         for i in range(6):
