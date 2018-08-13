@@ -4,7 +4,7 @@ class connect4:
 
     def __init__(self, *args, **kwargs):
         if(len(args)==0):
-            self.board = np.array([[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]])
+            self.board = [[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]]
             self.turn = 1
             self.last_move = (-1,-1)
         else:
@@ -24,7 +24,6 @@ class connect4:
         for i in range(7):
             if(self.board[0][i] == 0):
                 return False
->>>>>>> a6cdfe884539e1f633ccb8f4bc4a43f220767e84
         return True
 
     def check_se_diagonal(self):
@@ -104,7 +103,7 @@ class connect4:
         if(n_connected == 4):
             return True
 
-    def check_horizontal(): 
+    def check_horizontal(self): 
         board = self.board
         row = self.last_move[0]
         if (self.turn == 1):
@@ -115,11 +114,11 @@ class connect4:
         # HORIZONTAL CHECK
         string_board = ""
         for index in board[row]:
-            string_board += index;
+            string_board += str(index)
         if (string_board.contains(checkFor)):
-            return true
+            return True
         else:
-            return false
+            return False
 
     def has_won(self):
         if(self.last_move[0]==-1):
@@ -145,9 +144,8 @@ class connect4:
                 break
     def display_board(self):
         for row in self.board:
-            print row
+            print(row)
 
     def rem_last(self):
         if(self.last_move[0]!= -1):
             self.board[self.last_move[0]][self.last_move[1]] = 0
->>>>>>> a6cdfe884539e1f633ccb8f4bc4a43f220767e84
