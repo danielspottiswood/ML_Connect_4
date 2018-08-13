@@ -1,13 +1,14 @@
+import numpy as np; 
 class connect4:
 
     def __init__(self):
-        self.board = [[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]]
+        self.board = np.array([[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]])
         self.turn = 1
         self.score = 0
         self.last_move = (-1,-1)
-
+        
     def draw(self):
-        if(0 in self.board[0]):
+        if (0 in self.board[0]):
             return False
         return True
 
