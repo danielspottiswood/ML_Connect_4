@@ -28,7 +28,7 @@ def play_bot():
     position = input("Would you like to go first(1) or second(2): ")
     while(position!=2 and position != 1):
         print("Please type 1 or 2 you idiot")
-        input("Would you like to go first(1) or second(2): ")
+        position = input("Would you like to go first(1) or second(2): ")
     comp_pos = 2
     if position == 2:
         board.play(minimax(board, depth, 1))
