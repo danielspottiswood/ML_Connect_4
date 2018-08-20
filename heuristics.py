@@ -1,5 +1,38 @@
 from game_setup import connect4
 
+def threat_disjoint(game): # checks for 3 in a row disjoint 
+    game.last_move = (row, col)
+    points = 0 
+    count = 0
+    player = 1 
+    comp = 2
+    space = 0
+    for row in range(7):
+        count = 0
+        if (game.board[row].count(player) < 2):
+                continue;
+        for col in range(6):
+            if (count == 3):
+                points +=50
+                break 
+            if (game.board[row][col] == player): 
+                if (space <= 1):
+                    count++
+                else:
+                    count = 1
+                    space = 0
+            elif (game.board[row][col] == comp):
+                count = 0
+            else:
+                if (count != 0):
+                    space++
+            if (count == 3):
+                points +=50
+                break 
+    return points 
+
+
+
 #Count the number of threats for each player
 def threat_count(game):
     threats = 0
@@ -10,15 +43,18 @@ def threat_count(game):
                 game.last_move = (row, col)
                 game.board[row][col] = 1
                 if(game.has_won()):
+                    threats += 100; 
                     #print("Player 1 Row: " + str(row) + " Col: " + str(col))
+                else: 
                     if(row % 2 == 1):
                         threats += 1
                     else:
                         threats += .25
                 game.board[row][col] = 2
                 if(game.has_won()):
+                    threats+= 100
                     #print("Player 2 Row: " + str(row) + " Col: " + str(col))
-                    if(row % 2 == 0):
+                else:if(row % 2 == 0):
                         threats -= 1
                     else:
                         threats -= .25
