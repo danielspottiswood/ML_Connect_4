@@ -12,12 +12,12 @@ def threat_disjoint(game): # checks for 3 in a row disjoint
         if (game.board[row].count(player) < 2):
                 continue;
         for col in range(6):
-            if (count == 3):
-                points +=50
-                break 
             if (game.board[row][col] == player): 
                 if (space <= 1):
                     count++
+                    if (count == 3):
+                        points+=50
+                        break
                 else:
                     count = 1
                     space = 0
@@ -26,9 +26,7 @@ def threat_disjoint(game): # checks for 3 in a row disjoint
             else:
                 if (count != 0):
                     space++
-            if (count == 3):
-                points +=50
-                break 
+    
     return points 
 
 
